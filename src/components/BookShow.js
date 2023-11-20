@@ -1,13 +1,13 @@
-import { useState, useContext } from "react";
-import BooksContext from "../context/books";
+import { useState } from "react";
 import BookEdit from "./BookEdit";
+import useBooksContext from "../hook/use-book-context";
 
 function BookShow({ book }) {
   const [showEdit, setShowEdit] = useState(false);
-  const { deleteBooksById } = useContext(BooksContext);
+  const { deleteBookById } = useBooksContext();
 
   const handleDeleteClick = () => {
-    deleteBooksById(book.id);
+    deleteBookById(book.id);
   };
 
   const handleEditClick = () => {
